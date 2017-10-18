@@ -23,7 +23,7 @@ class DocumentTitle extends Component {
   }
 }
 
-module.exports = withSideEffect(
+export default withSideEffect(
   reducePropsToState,
   handleStateChangeOnClient
 )(DocumentTitle);
