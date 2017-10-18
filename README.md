@@ -6,12 +6,18 @@ This component can be used on server side as well.
 
 Built with [React Side Effect](https://github.com/gaearon/react-side-effect).
 
-====================
+--------------------
 
 ## Installation
 
 ```
-npm install --save react-document-title
+npm install --save JixunMoe/react-document-title
+```
+
+or
+
+```
+yarn add JixunMoe/react-document-title --save
 ```
 
 Dependencies: React >= 0.13.0
@@ -28,20 +34,22 @@ Dependencies: React >= 0.13.0
 
 Assuming you use something like [react-router](https://github.com/rackt/react-router):
 
-```javascript
-var App = React.createClass({
-  render: function () {
+```jsx
+import React, {Component} from 'react';
+
+class App extends Component {
+  render() {
     // Use "My Web App" if no child overrides this
     return (
       <DocumentTitle title='My Web App'>
-        <this.props.activeRouteHandler />
+        { this.props.activeRouteHandler }
       </DocumentTitle>
     );
   }
-});
+}
 
-var HomePage = React.createClass({
-  render: function () {
+class HomePage extends Component {
+  render() {
     // Use "Home" while this component is mounted
     return (
       <DocumentTitle title='Home'>
@@ -49,12 +57,12 @@ var HomePage = React.createClass({
       </DocumentTitle>
     );
   }
-});
+}
 
-var NewArticlePage = React.createClass({
+class NewArticlePage extends Component {
   mixins: [LinkStateMixin],
-
-  render: function () {
+  
+  render() {
     // Update using value from state while this component is mounted
     return (
       <DocumentTitle title={this.state.title || 'Untitled'}>
@@ -65,7 +73,7 @@ var NewArticlePage = React.createClass({
       </DocumentTitle>
     );
   }
-});
+}
 ```
 
 ## Server Usage
